@@ -48,17 +48,23 @@ function questionnaireSubmit() {
         
     z = -1.840 + 0.036 * age - 1.163 * sex - 0.775 * invalid_group + 0.238 * count_disease + 0.970 * hypertonic;
     P = (1/(1 + Math.exp(-z))) * 100;
-    console.log(P);
+
     let conclusion;
 
-    if (P < 62) {
-        conclusion = "небольшой риск развития пневмонии";
+    if (P <= 20) {
+        conclusion = "очень низкий риск развития пневмонии";
     } 
-    else if ((P >= 62) && (P < 85)){
-        conclusion = "значительный риск развития пневмонии";
+    else if ((P > 20) && (P <= 55)){
+        conclusion = "низкий риск развития пневмонии";
     }
-    else if (P >= 85){
+    else if ((P > 55) && (P <= 62)){
+        conclusion = "средний риск развития пневмонии";
+    }
+    else if ((P > 62) && (P <= 85)){
         conclusion = "высокий риск развития пневмонии";
+    }
+    else if (P > 85){
+        conclusion = "очень высокий риск развития пневмонии";
     }
 
     let resultModal = document.getElementById("modal__body");

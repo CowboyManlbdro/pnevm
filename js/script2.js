@@ -46,17 +46,22 @@ function questionnaireSubmit() {
         
     z = -6.637 + 0.044 * age + 0.091 * count_disease + 1.324 * hypertonic + 1.337 * kidney;
     P = (1/(1 + Math.exp(-z))) * 100;
-    console.log(P);
-    let conclusion;
 
-    if (P < 23) {
-        conclusion = "небольшой риск летального исхода";
+    let conclusion;
+    if (P <= 8) {
+        conclusion = "очень низкий риск летального исхода";
     } 
-    else if ((P >= 23) && (P < 34)){
-        conclusion = "значительный риск летального исхода";
+    else if ((P > 8) && (P <= 21)){
+        conclusion = "низкий риск летального исхода";
     }
-    else if (P >= 34){
+    else if ((P > 21) && (P <= 23)){
+        conclusion = "средний риск летального исхода";
+    }
+    else if ((P > 23) && (P <= 34)){
         conclusion = "высокий риск летального исхода";
+    }
+    else if (P > 34){
+        conclusion = "очень высокий риск летального исхода";
     }
 
     let resultModal = document.getElementById("modal__body");
