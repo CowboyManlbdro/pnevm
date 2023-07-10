@@ -48,20 +48,20 @@ function questionnaireSubmit() {
     P = (1/(1 + Math.exp(-z))) * 100;
 
     let conclusion;
-    if (P <= 8) {
-        conclusion = "очень низкий риск летального исхода";
+    if (P <= 20) {
+        conclusion = P.toFixed(2) + "% - очень низкий риск летального исхода";
     } 
-    else if ((P > 8) && (P <= 21)){
-        conclusion = "низкий риск летального исхода";
+    else if ((P > 20) && (P <= 50)){
+        conclusion = P.toFixed(2) + "% - низкий риск летального исхода";
     }
-    else if ((P > 21) && (P <= 23)){
-        conclusion = "средний риск летального исхода";
+    else if ((P > 50) && (P <= 65)){
+        conclusion = P.toFixed(2) + "% - средний риск летального исхода";
     }
-    else if ((P > 23) && (P <= 34)){
-        conclusion = "высокий риск летального исхода";
+    else if ((P > 65) && (P <= 85)){
+        conclusion = P.toFixed(2) + "% - высокий риск летального исхода";
     }
-    else if (P > 34){
-        conclusion = "очень высокий риск летального исхода";
+    else if (P > 85){
+        conclusion = P.toFixed(2) + "% - очень высокий риск летального исхода";
     }
 
     let resultModal = document.getElementById("modal__body");

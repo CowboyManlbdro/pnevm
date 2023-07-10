@@ -52,19 +52,19 @@ function questionnaireSubmit() {
     let conclusion;
 
     if (P <= 20) {
-        conclusion = "очень низкий риск развития пневмонии";
+        conclusion = P.toFixed(2) + "% - очень низкий риск развития пневмонии";
     } 
-    else if ((P > 20) && (P <= 55)){
-        conclusion = "низкий риск развития пневмонии";
+    else if ((P > 20) && (P <= 50)){
+        conclusion = P.toFixed(2) + "% - низкий риск развития пневмонии";
     }
-    else if ((P > 55) && (P <= 62)){
-        conclusion = "средний риск развития пневмонии";
+    else if ((P > 50) && (P <= 65)){
+        conclusion = P.toFixed(2) + "% - средний риск развития пневмонии";
     }
-    else if ((P > 62) && (P <= 85)){
-        conclusion = "высокий риск развития пневмонии";
+    else if ((P > 65) && (P <= 85)){
+        conclusion = P.toFixed(2) + "% - высокий риск развития пневмонии";
     }
     else if (P > 85){
-        conclusion = "очень высокий риск развития пневмонии";
+        conclusion = P.toFixed(2) + "% - очень высокий риск развития пневмонии";
     }
 
     let resultModal = document.getElementById("modal__body");
