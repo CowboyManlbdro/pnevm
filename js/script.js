@@ -1,6 +1,9 @@
 const questionnaires = document.querySelectorAll(".questionnaire__wrapper"),
     pacient = document.querySelector("#pacient"),
-    modal = document.querySelector('.modal');
+    modal = document.querySelector('.modal'),
+    hypertonic_radio = document.querySelector('#hypertonic_ans1'),
+    hypertonic_radio_no = document.querySelector('#hypertonic_ans2'),
+    hypertonic_checkbox = document.querySelector('#diseases_ans4');
 
 const today = document.querySelector('#today');
 let date = new Date();
@@ -72,6 +75,22 @@ function questionnaireSubmit() {
 
     fadeIn(modal,500);
 }
+
+hypertonic_radio.addEventListener('click', function(){
+    hypertonic_checkbox.checked = 1;
+});
+
+hypertonic_radio_no.addEventListener('click', function(){
+    hypertonic_checkbox.checked = 0;
+});
+
+hypertonic_checkbox.addEventListener('click', function(){
+    if (hypertonic_radio.checked == 0){
+        hypertonic_radio.checked = 1;
+    } else {
+        hypertonic_radio_no.checked = 1;
+    }
+});
 
 document
     .querySelector(".modal__btn-close")
